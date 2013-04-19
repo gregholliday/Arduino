@@ -52,7 +52,7 @@ int lookAt(int angle)
   
   for(int i=0; i<4; i++)
   {
-    distance = pingGetDistance(pingPin);
+    distance = pingGetDistance(PINGPIN);
     if(distance > 0)
     {
       samples++;
@@ -60,7 +60,7 @@ int lookAt(int angle)
     }
   }
   if(samples > 0)
-    distance = cume / samples'
+    distance = cume / samples;
   else
     distance = 0;
     
@@ -73,4 +73,20 @@ int lookAt(int angle)
   }
   return distance;
 }
+
+boolean checkMovement()
+{
+ boolean isClear = true;
+ 
+ if(moveGetState() == MOV_FORWARD)
+ {
+   if(lookForObstacle(OBST_FRONT) == true)
+   {
+     isClear = false;
+   }
+   return isClear;
+ }
+}
+
+
 

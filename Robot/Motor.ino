@@ -1,35 +1,43 @@
 void turnLeft(int spd)
 {
-  digitalWrite(M2Brk,HIGH); //Brake the left motor
-  digitalWrite(M1Dir,HIGH); //Set right motor direction forward
-  analogWrite(M1Pwm,spd);
+  digitalWrite(MLBRK,HIGH); //Brake the left motor
+  digitalWrite(MRDRK,HIGH); //Set right motor direction forward
+  analogWrite(MRPWM,spd);
 }
 
 void turnRight(int spd)
 {
-  digitalWrite(M1Brk,HIGH); //Brake the left motor
-  digitalWrite(M2Dir,HIGH); //Set right motor direction forward
-  analogWrite(M2Pwm,spd);
+  digitalWrite(MRBRK,HIGH); //Brake the left motor
+  digitalWrite(MLDIR,HIGH); //Set right motor direction forward
+  analogWrite(MLDIR,spd);
 }
 
-void moveFWD(int spd)
+void moveFwd(int spd)
 {
-  digitalWrite(M1Brk,LOW); //No brake
-  digitalWrite(M2Brk,LOW); //No brake
-  digitalWrite(M1Dir,HIGH); //Direction FORWARD
-  digitalWrite(M2Dir,HIGH); //Direction FORWARD
+  digitalWrite(MRBRK,LOW); //No brake
+  digitalWrite(MLBRK,LOW); //No brake
+  digitalWrite(MLDIR,HIGH); //Direction FORWARD
+  digitalWrite(MRDIR,HIGH); //Direction FORWARD
   
-  analogWrite(M1Pwm,spd); 
-  analogWrite(M2Pwm,spd);
+  analogWrite(MRPWM,spd); 
+  analogWrite(MLPWM,spd);
 }
 
-void moveBAK(int spd)
+void moveBak(int spd)
 {
-  digitalWrite(M1Brk,LOW); //No brake
-  digitalWrite(M2Brk,LOW); //No brake
-  digitalWrite(M1Dir,LOW); //Direction BACKWARD
-  digitalWrite(M2Dir,LOW); //Direction BACKWARD
+  digitalWrite(MRBRK,LOW); //No brake
+  digitalWrite(MLBRK,LOW); //No brake
+  digitalWrite(MRDIR,LOW); //Direction BACKWARD
+  digitalWrite(MLDIR,LOW); //Direction BACKWARD
   
-  analogWrite(M1Pwm,spd); 
-  analogWrite(M2Pwm,spd);
+  analogWrite(MRPWM,spd); 
+  analogWrite(MLPWM,spd);
 }
+
+void moveStop()
+{
+  analogWrite(MRPWM,FULLSTOP);
+  analogWrite(MLPWM,FULLSTOP);
+}
+
+

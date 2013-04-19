@@ -4,7 +4,7 @@ void servoWrite(int angle, long servoDelay)
   int pulsewidth = map(angle, 0, 180, 544, 2400); //width in microseconds
   Serial.println(pulsewidth);
   do{
-    servo1.writeMicroseconds(pulsewidth);
+    servo.writeMicroseconds(pulsewidth);
     delay(20); //wait for 20 milliseconds
     servoDelay -= 20;
   }while(servoDelay >=0);
